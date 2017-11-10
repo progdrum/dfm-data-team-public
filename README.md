@@ -79,3 +79,9 @@ Finally, the code queries items inserted in the database and collects them
 as a list of Python dictionaries. These are then easily passed to 
 _json2html_'s _convert_ method, facilitating their display in an HTML table 
 at /results.
+
+
+#### Other Files
+
+A dump of the database result is available in _dump.txt_. The cleaned-up CSV data 
+is available in _clean_test_report.csv.gz_.
