@@ -1,1 +1,4 @@
 Flask==0.10.1
+sqlalchemy=1.1.13
+flask-sqlalchemy=2.3.2
+pandas=0.21.0
