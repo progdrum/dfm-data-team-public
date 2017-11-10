@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from shared import db
 from data_processing import read_and_clean_data, insert_into_db, query_data
 
@@ -12,6 +12,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = \
 # Initialize the app with the SQLAlchemy object from the model file
 db.init_app(app)
 
+# Create the database
+db.create_all()
+
 
 @app.route("/")
 def output():
@@ -21,7 +24,15 @@ def output():
     
     :return: 
     """
-    return "Output results here."
+    processed_data = read_and_clean_data('example_report.csv')
+    insert_into_db('used_car_campaign', processed_data)
+
+    return render_template('home')
+
+
+@app.route("/results")
+def show_results():
+    return query_data()
 
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 import pandas as pd
 from shared import db
+from ucc_model import UsedCarCampaign
 
 
 def read_and_clean_data(path):
@@ -22,6 +23,9 @@ def read_and_clean_data(path):
     data[['Conv. rate', 'CTR', 'Search Lost IS (rank)', 'Interaction Rate']]\
         .applymap(lambda x: float(x.rstrip('%').replace(',', '')))
 
+    # Also, write the results to a CSV
+    data.to_csv('clean_test_report.csv')
+
     return data
 
 
@@ -42,4 +46,4 @@ def query_data():
     
     :return: The requested data
     """
-    pass
+    UsedCarCampaign.query.all()
