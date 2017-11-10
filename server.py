@@ -1,5 +1,6 @@
 from flask import Flask
-from ucc_model import db
+from shared import db
+from data_processing import read_and_clean_data, insert_into_db, query_data
 
 
 app = Flask(__name__)
