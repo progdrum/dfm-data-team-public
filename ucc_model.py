@@ -1,8 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
-
-
-# Create the SQLAlchemy object so that we can use it in the application
-db = SQLAlchemy()
+from shared import db
 
 
 class UsedCarCampaign(db.Model):
